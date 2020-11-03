@@ -41,4 +41,8 @@ export class BookStoreService {
   getAll(): Book[] {
     return this.books;
   }
+
+  getSingleBook(isbn: string): Book {
+    return this.books.find(book => book.isbn === isbn);
+  }
 }
