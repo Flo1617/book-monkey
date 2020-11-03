@@ -14,8 +14,18 @@ export class BookDetailsComponent implements OnInit {
   constructor(private bs: BookStoreService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const params = this.route.snapshot.paramMap;
-    this.book = this.bs.getSingleBook(params.get('isbn'));
+    // Auslesen der übergebenen Parameter
+    // 1. mit Observable ohne snapshot
+    // 2. ohne Observable mit snapshot
+
+    // 1. mit Observable ohne snapshot
+    this.route.paramMap.subscribe(params => {
+      this.book = this.bs.getSingleBook(params.get('isbn'));
+    });
+
+    // 2. ohne Observable mit snapshot
+    // const params = this.route.snapshot.paramMap;
+    // this.book = this.bs.getSingleBook(params.get('isbn'));
   }
 
   getRating(num: number) {
