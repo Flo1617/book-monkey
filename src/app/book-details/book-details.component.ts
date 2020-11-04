@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 
@@ -11,7 +11,7 @@ import { BookStoreService } from '../shared/book-store.service';
 export class BookDetailsComponent implements OnInit {
   book: Book;
 
-  constructor(private bs: BookStoreService, private route: ActivatedRoute) { }
+  constructor(private bs: BookStoreService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // Auslesen der übergebenen Parameter
@@ -20,7 +20,7 @@ export class BookDetailsComponent implements OnInit {
 
     // 1. mit Observable ohne snapshot
     this.route.paramMap.subscribe(params => {
-      this.book = this.bs.getSingleBook(params.get('isbn'));
+      this.bs.getSingle(params.get('isbn')).subscribe(b => this.book = b);
     });
 
     // 2. ohne Observable mit snapshot
