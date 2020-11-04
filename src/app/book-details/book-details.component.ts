@@ -31,4 +31,10 @@ export class BookDetailsComponent implements OnInit {
   getRating(num: number) {
     return new Array(num);
   }
+
+  removeBook() {
+    if (confirm('Buch worklich löschen?')) {
+      this.bs.remove(this.book.isbn).subscribe(res => this.router.navigate(['../'], {relativeTo: this.route}));
+    }
+  }
 }
