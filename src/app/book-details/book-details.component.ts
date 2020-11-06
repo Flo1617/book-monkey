@@ -33,7 +33,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   removeBook() {
-    if (confirm('Buch worklich löschen?')) {
+    if (confirm('Buch wirklich löschen?')) {
       this.bs.remove(this.book.isbn).subscribe(res => this.router.navigate(['../'], {relativeTo: this.route}));
     }
   }
