@@ -4,19 +4,19 @@
   <bm-from-messages [control]="titleInput" controlName="title"></bm-from-messages>
 
   <label for="subtitle">Untertitel</label>
-  <input id="subtitle" name="subtitle" [(ngModel)]="book.subtitle" required />
+  <input id="subtitle" name="subtitle" [(ngModel)]="book.subtitle" />
 
   <label for="isbn">ISBN</label>
-  <input id="isbn" #isbnInput="ngModel" name="isbn" [(ngModel)]="book.isbn" required minlength="10" useValueAsDate maxlength="13" />
+  <input id="isbn" #isbnInput="ngModel" name="isbn" [(ngModel)]="book.isbn" minlength="10" useValueAsDate maxlength="13" required />
   <bm-from-messages [control]="isbnInput" controlName="isbn"></bm-from-messages>
 
   <label for="published">Erscheinungsdatum</label>
   <input id="published" type="date" #dateInput="ngModel" name="published" [(ngModel)]="book.published" required />
   <bm-from-messages [control]="dateInput" controlName="published"></bm-from-messages>
 
-  <label for="author">Autor</label>
-  <input id="author" #authorInput="ngModel" name="author" [(ngModel)]="book.authors[0]" required />
-  <bm-from-messages [control]="authorInput" controlName="author"></bm-from-messages>
+  <label for="authors">Autor</label>
+  <input id="authors" #authorInput="ngModel" name="authors" [(ngModel)]="book.authors[0]" required />
+  <bm-from-messages [control]="authorInput" controlName="authors"></bm-from-messages>
 
   <label for="description">Beschreibung</label>
   <textarea id="description" name="description" [(ngModel)]="book.description"></textarea>
