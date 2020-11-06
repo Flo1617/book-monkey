@@ -31,6 +31,10 @@ export class BookStoreService {
     return this.http.get<BookRaw[]>(`${this.api}/book/search/${searchTermn}`).pipe(retry(3),map(booksRaw => booksRaw.map(b => BookFactory.fromRaw(b))),catchError(this.errorHandler));
   }
 
+  create(book: Book): Observable<any> {
+    return this.http.post(`${this.api}/book`, book, { responseType: 'text' }).pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: HttpErrorResponse): Observable<any> {
     console.log("Fehler aufgetaucht!");
     return throwError(error);
