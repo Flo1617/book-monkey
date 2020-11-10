@@ -1,33 +1,39 @@
-<form class="ui form" #bookForm="ngForm" (ngSubmit)="submitForm()">
+<form class="ui form" [formGroup]="bookForm" (ngSubmit)="submitForm()">
   <label for="title">Buchtitel</label>
-  <input id="title" #titleInput="ngModel" name="title" [(ngModel)]="book.title" required />
-  <bm-from-messages [control]="titleInput" controlName="title"></bm-from-messages>
+  <input id="title" name="title" formControlName="title" required />
+  <bm-from-messages [control]="bookForm.get('title')" controlName="title"></bm-from-messages>
 
   <label for="subtitle">Untertitel</label>
-  <input id="subtitle" name="subtitle" [(ngModel)]="book.subtitle" />
+  <input id="subtitle" name="subtitle" formControlName="subtitle" />
 
   <label for="isbn">ISBN</label>
-  <input id="isbn" #isbnInput="ngModel" name="isbn" [(ngModel)]="book.isbn" minlength="10" useValueAsDate maxlength="13" required />
-  <bm-from-messages [control]="isbnInput" controlName="isbn"></bm-from-messages>
+  <input id="isbn" name="isbn" formControlName="isbn" required />
+  <bm-from-messages [control]="bookForm.get('isbn')" controlName="isbn"></bm-from-messages>
 
   <label for="published">Erscheinungsdatum</label>
-  <input id="published" type="date" #dateInput="ngModel" name="published" [(ngModel)]="book.published" required />
-  <bm-from-messages [control]="dateInput" controlName="published"></bm-from-messages>
+  <input id="published" type="date" name="published" formControlName="published" useValueAsDate required />
+  <bm-from-messages [control]="bookForm.get('published')" controlName="published"></bm-from-messages>
 
   <label for="authors">Autor</label>
-  <input id="authors" #authorInput="ngModel" name="authors" [(ngModel)]="book.authors[0]" required />
-  <bm-from-messages [control]="authorInput" controlName="authors"></bm-from-messages>
+  <div class="fields" formArrayName="authors">
+    <div class="sixteen wide field" *ngFor="let c of authors.controls; index as i">
+      <input id="authors" name="authors" [formControlName]="i" placeholder="Autor" required />
+    </div>
+  </div>
+  <bm-from-messages [control]="bookForm.get('authors')" controlName="authors"></bm-from-messages>
 
   <label for="description">Beschreibung</label>
-  <textarea id="description" name="description" [(ngModel)]="book.description"></textarea>
+  <textarea id="description" name="description" formControlName="description"></textarea>
 
   <label for="url">Bild</label>
-  <div class="two fields">
-    <div class="field">
-      <input id="url" name="url" [(ngModel)]="book.thumbnails[0].url" placeholder="URL" />
-    </div>
-    <div class="field">
-      <input id="text" name="text" [(ngModel)]="book.thumbnails[0].title" placeholder="Titel" />
+  <div formArrayName="thumbnails">
+    <div class="fields" *ngFor="let c of thumbnails.controls; index as i" [formGroupName]="i">
+      <div class="nine wide field">
+        <input id="url" name="url" formControlName="url" placeholder="URL" />
+      </div>
+      <div class="seven wide field">
+        <input id="text" name="text" formControlName="text" placeholder="Titel" />
+      </div>
     </div>
   </div>
 

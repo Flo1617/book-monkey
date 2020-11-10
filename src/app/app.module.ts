@@ -12,7 +12,7 @@ import { SearchComponent } from './search/search.component';
 import { TokenInterceptor } from './shared/token.interceptor';
 import { BookFormComponent } from './book-form/book-form.component';
 import { CreateBookComponent } from './create-book/create-book.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { FromMessagesComponent } from './from-messages/from-messages.component';
 
@@ -32,7 +32,7 @@ import { FromMessagesComponent } from './from-messages/from-messages.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    ReactiveFormsModule,
     DateValueAccessorModule
   ],
   providers: [{
