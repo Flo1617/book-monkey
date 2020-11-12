@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: 'bm-from-messages',
-  templateUrl: './from-messages.component.html',
-  styleUrls: ['./from-messages.component.css']
+  selector: 'bm-form-messages',
+  templateUrl: './form-messages.component.html',
+  styleUrls: ['./form-messages.component.css']
 })
-export class FromMessagesComponent implements OnInit {
+export class FormMessagesComponent implements OnInit {
   @Input() control: AbstractControl;
   @Input() controlName: string;
 

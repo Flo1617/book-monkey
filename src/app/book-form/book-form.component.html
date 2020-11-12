@@ -1,38 +1,40 @@
 <form class="ui form" [formGroup]="bookForm" (ngSubmit)="submitForm()">
   <label for="title">Buchtitel</label>
-  <input id="title" name="title" formControlName="title" required />
-  <bm-from-messages [control]="bookForm.get('title')" controlName="title"></bm-from-messages>
+  <input id="title" name="title" formControlName="title" />
+  <bm-form-messages [control]="bookForm.get('title')" controlName="title"></bm-form-messages>
 
   <label for="subtitle">Untertitel</label>
   <input id="subtitle" name="subtitle" formControlName="subtitle" />
 
   <label for="isbn">ISBN</label>
-  <input id="isbn" name="isbn" formControlName="isbn" required />
-  <bm-from-messages [control]="bookForm.get('isbn')" controlName="isbn"></bm-from-messages>
+  <input id="isbn" name="isbn" formControlName="isbn" />
+  <bm-form-messages [control]="bookForm.get('isbn')" controlName="isbn"></bm-form-messages>
 
   <label for="published">Erscheinungsdatum</label>
-  <input id="published" type="date" name="published" formControlName="published" useValueAsDate required />
-  <bm-from-messages [control]="bookForm.get('published')" controlName="published"></bm-from-messages>
+  <input id="published" type="date" name="published" formControlName="published" useValueAsDate />
+  <bm-form-messages [control]="bookForm.get('published')" controlName="published"></bm-form-messages>
 
-  <label for="authors">Autor</label>
+  <label for="authors">Autoren</label>
+  <button type="button" class="ui mini button" (click)="addAuthorControl()">+ Autor</button>
   <div class="fields" formArrayName="authors">
     <div class="sixteen wide field" *ngFor="let c of authors.controls; index as i">
-      <input id="authors" name="authors" [formControlName]="i" placeholder="Autor" required />
+      <input id="authors" name="authors" [formControlName]="i" placeholder="Autor" />
     </div>
   </div>
-  <bm-from-messages [control]="bookForm.get('authors')" controlName="authors"></bm-from-messages>
+  <bm-form-messages [control]="bookForm.get('authors')" controlName="authors"></bm-form-messages>
 
   <label for="description">Beschreibung</label>
   <textarea id="description" name="description" formControlName="description"></textarea>
 
-  <label for="url">Bild</label>
+  <label for="url">Bilder</label>
+  <button type="button" class="ui mini button" (click)="addThumbnailControl()">+ Bild</button>
   <div formArrayName="thumbnails">
     <div class="fields" *ngFor="let c of thumbnails.controls; index as i" [formGroupName]="i">
       <div class="nine wide field">
         <input id="url" name="url" formControlName="url" placeholder="URL" />
       </div>
       <div class="seven wide field">
-        <input id="text" name="text" formControlName="text" placeholder="Titel" />
+        <input id="pictitle" name="pictitle" formControlName="pictitle" placeholder="Bildtitel" />
       </div>
     </div>
   </div>

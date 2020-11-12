@@ -1,7 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Book, Thumbnail } from '../shared/book';
-import { BookFactory } from '../shared/book-factory';
 
 @Component({
   selector: 'bm-book-form',
@@ -63,5 +62,13 @@ export class BookFormComponent implements OnInit {
 
   get thumbnails(): FormArray {
     return this.bookForm.get('thumbnails') as FormArray;
+  }
+
+  addAuthorControl() {
+    this.authors.push(this.fb.control(''));
+  }
+
+  addThumbnailControl() {
+    this.thumbnails.push(this.fb.group({ url: '', title: '' }));
   }
 }
