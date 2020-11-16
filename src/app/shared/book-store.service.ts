@@ -35,6 +35,10 @@ export class BookStoreService {
     return this.http.post(`${this.api}/book`, book, { responseType: 'text' }).pipe(catchError(this.errorHandler));
   }
 
+  update(book: Book): Observable<any> {
+    return this.http.put(`${this.api}/book/${book.isbn}`, book, { responseType: 'text' }).pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: HttpErrorResponse): Observable<any> {
     console.log("Fehler aufgetaucht!");
     return throwError(error);
