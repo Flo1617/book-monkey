@@ -43,4 +43,12 @@ export class BookStoreService {
     console.log("Fehler aufgetaucht!");
     return throwError(error);
   }
+
+  check(isbn: string): Observable<boolean> {
+    return this.http.get(
+      `${this.api}/book/${isbn}/check`
+    ).pipe(
+      catchError(this.errorHandler)
+    );
+  }
 }
