@@ -18,6 +18,8 @@ import { FormMessagesComponent } from './form-messages/form-messages.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { registerLocaleData } from '@angular/common';
 import localeDE from '@angular/common/locales/de';
+import { IsbnPipe } from './shared/isbn.pipe';
+import { ZoomDirective } from './shared/zoom.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import localeDE from '@angular/common/locales/de';
     BookFormComponent,
     CreateBookComponent,
     FormMessagesComponent,
-    EditBookComponent
+    EditBookComponent,
+    IsbnPipe,
+    ZoomDirective
   ],
   imports: [
     BrowserModule,
