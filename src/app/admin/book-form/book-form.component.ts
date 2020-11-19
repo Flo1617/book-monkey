@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Book, Thumbnail } from '../shared/book';
+import { Book, Thumbnail } from '../../shared/book';
 import { BookValidators } from '../shared/book-validators';
 import { BookExistsValidatorService } from '../shared/book-exists-validator.service';
 

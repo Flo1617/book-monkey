@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AsyncValidator, FormControl, ValidationErrors } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { BookStoreService } from './book-store.service';
+import { BookStoreService } from '../../shared/book-store.service';
 
 @Injectable({
   providedIn: 'root'
