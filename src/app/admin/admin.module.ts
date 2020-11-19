@@ -7,7 +7,7 @@ import { CreateBookComponent } from './create-book/create-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { FormMessagesComponent } from './form-messages/form-messages.component';
 
-import { DateValueAccessorModule } from 'angular-date-value-accessor/lib/date-value-accessor.module';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
