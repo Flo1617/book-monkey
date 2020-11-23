@@ -4,6 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "book-monkey": {
+      "i18n": {
+        "sourceLocale": "de",
+        "locales": {
+          "en": {
+            "translation": "src/messages.en.xtb",
+            "baseHref": ""
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,6 +66,9 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "en": {
+              "localize": ["en"]
             }
           }
         },
@@ -68,6 +80,9 @@
           "configurations": {
             "production": {
               "browserTarget": "book-monkey:build:production"
+            },
+            "en": {
+              "browserTarget": "book-monkey:build:en"
             }
           }
         },

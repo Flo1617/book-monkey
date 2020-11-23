@@ -7,6 +7,9 @@
       {{ author }}<span *ngIf="!l">, </span>
     </span>
     <br />
-    ISBN {{ book.isbn | isbn }}
+    <ng-container i18n="@@BookListItem:book isbn">
+      ISBN
+    </ng-container>
+    {{ book.isbn | isbn }}
   </div>
 </div>

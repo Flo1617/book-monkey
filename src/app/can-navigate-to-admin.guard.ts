@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class CanNavigateToAdminGuard implements CanActivate {
 
   canActivate(): boolean {
     if (!this.accessGranted) {
-      this.accessGranted = window.confirm("Mit großer Macht kommt große Verantwortung. Möchten Sie den Admin-Bereich wirklich betreten?");
+      const question = $localize`:@@CanNavigateToAdminGuard\:question:Mit großer Macht kommt große Verantwortung. Möchten Sie den Admin-Bereich wirklich betreten?`;
+      this.accessGranted = window.confirm(question);
     }
     return this.accessGranted;
   }

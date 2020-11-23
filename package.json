@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-en": "ng serve --configuration=en",
     "build": "ng build",
+    "build-en": "ng build --configuration=production,en",
+    "extract-i18n": "ng xi18n --format=xmb --output-path=src",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -29,9 +32,10 @@
     "@angular-devkit/build-angular": "~0.1001.7",
     "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.1.6",
-    "@types/node": "^12.11.1",
+    "@angular/localize": "^10.1.6",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",

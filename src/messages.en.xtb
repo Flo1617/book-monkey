@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="en">
+  <translation id="AppComponent:home">Home</translation>
+  <translation id="AppComponent:books">Books</translation>
+  <translation id="AppComponent:admin">Administration</translation>
+  <translation id="HomeComponent:header">Home</translation>
+  <translation id="HomeComponent:tagline" desc="a proud sentence about the project">This is the BookMonkey</translation>
+  <translation id="HomeComponent:book list link" desc="Text of the link to the books screen">
+    Show book list  </translation>
+  <translation id="HomeComponent:search">Search</translation>
+  <translation id="BookDetailsComponent:book authors">Authors</translation>
+  <translation id="BookDetailsComponent:book isbn"> ISBN</translation>
+  <translation id="BookDetailsComponent:book published">Published</translation>
+  <translation id="BookDetailsComponent:book rating">Rating</translation>
+  <translation id="BookDetailsComponent:book description">Description</translation>
+  <translation id="BookDetailsComponent:delete book">
+Delete book    </translation>
+  <translation id="BookDetailsComponent:edit book">
+Edit book    </translation>
+  <translation id="BookList:missing books">No books available.</translation>
+  <translation id="BookList:loading data">Loading data...</translation>
+  <translation id="BookListItem:book isbn">
+ISBN    </translation>
+  <translation id="BookFormComponent:book title">Title</translation>
+  <translation id="BookFormComponent:book subtitle">Subtitle</translation>
+  <translation id="BookFormComponent:book isbn">ISBN</translation>
+  <translation id="BookFormComponent:book published">Published</translation>
+  <translation id="BookFormComponent:book authors">Authors</translation>
+  <translation id="BookFormComponent:add author">+ Author</translation>
+  <translation id="BookFormComponent:book description">Description</translation>
+  <translation id="BookFormComponent:book thumbnails">Thumbnails</translation>
+  <translation id="BookFormComponent:add thumbnail">+ Thumbnail</translation>
+  <translation id="BookFormComponent:book save">
+Save  </translation>
+  <translation id="CreateBookComponent:add book">Add book</translation>
+  <translation id="EditBookComponent:edit book">Edit book</translation>
+</translationbundle>
